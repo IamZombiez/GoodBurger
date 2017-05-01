@@ -32,6 +32,6 @@ var orm = {
 
 module.exports = orm;
 
-selectAll() // where eaten = false || true
-insertOne() // adding a burger
-updateOne() // 
+// selectAll() // where eaten = false || true
+// insertOne() // adding a burger
+// updateOne() // 
