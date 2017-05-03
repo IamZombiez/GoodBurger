@@ -1,20 +1,20 @@
 // Dependencies
-const express = require("express")
-const override = require("method-override")
-const bodyParser = require("body-parser")
+const express = require("express");
+const methodOverride = require("method-override");
+const bodyParser = require("body-parser");
 
 var app = express();
 
 var PORT = process.env.PORT || 8080;
 
 // Serve static content for the app from the "public" directory in the application directory.
-app.use(express.static(process.cwd() + "/public"));
+app.use(express.static(__dirname + "/public"));
  
  // data parsing
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // POST DEL Method
-// app.use(methodOverride("_method"));
+app.use(methodOverride("_method"));
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
