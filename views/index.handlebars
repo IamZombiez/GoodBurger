@@ -8,7 +8,7 @@
       {{#each burger}}
         {{#unless this.eaten}}
       	<li>
-          <p><span class="label"> </span> {{this.name}}</p>
+          <p>{{this.id}}<span class="label"> </span> {{this.name}}</p>
           
         <form action="/{{this.id}}?_method=PUT" method="POST">
           <input type="hidden" name="eaten" value="true">
@@ -26,11 +26,11 @@
       {{#each burger}}
         {{#if this.eaten}}
         <li>
-          <p><span class="label"></span> {{this.name}}</p>
+          <p>{{this.id}}<span class="label"></span> {{this.name}}</p>
 
         <form action="/{{this.id}}?_method=PUT" method="POST">
           <input type="hidden" name="eaten" value="false">
-          <button type="submit">Eat Again?</button>
+          <button type="submit">Order Another?</button>
         </form>
 
         </li>

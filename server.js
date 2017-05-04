@@ -13,7 +13,7 @@ app.use(express.static(__dirname + "/public"));
  // data parsing
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// POST DEL Method
+// POST Method
 app.use(methodOverride("_method"));
 
 // Set Handlebars.
