@@ -8,12 +8,12 @@
       {{#each burger}}
         {{#unless this.eaten}}
       	<li>
-          <p><span class="label">Burger Name: </span> {{this.burger_name}}</p>
+          <p><span class="label"> </span> {{this.name}}</p>
           
-          <form action="/{{this.id}}?_method=DELETE" method="POST">
-            <input type="hidden" name="id" value="{{this.id}}">
-            <button type="submit">Eat Me!</button>
-          </form>
+        <form action="/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="eaten" value="true">
+          <button type="submit">Eat Me!</button>
+        </form>
     
       	</li>
         {{/unless}}
@@ -26,12 +26,8 @@
       {{#each burger}}
         {{#if this.eaten}}
         <li>
-          <p><span class="label">Burger Name: </span> {{this.burger_name}}</p>
+          <p><span class="label"></span> {{this.name}}</p>
 
-          <form action="/{{this.id}}?_method=DELETE" method="POST">
-            <input type="hidden" name="id" value="{{this.id}}">
-            <button type="submit">Eat Me!</button>
-          </form>
         </li>
         {{/if}}
         {{/each}}
@@ -41,15 +37,14 @@
 </div>
 
 <h2>Add a Burger</h2>
-
-<form class="create-form" action="/" method="POST">
+<form class="create-update-form" action="/" method="POST">
 
   <div class="form-group">
-    <label for="auth">Burger</label>
-    <input type="text" id="newBurger" name="newBurger">
+    <label for="ca">Burger Name:</label>
+    <input type="text" id="ca" name="name">
   </div>
 
-  <button type="submit">Add Burger</button>
+  <button type="submit">Add a Burger</button>
 </form>
 
 </div>
