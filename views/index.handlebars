@@ -28,6 +28,11 @@
         <li>
           <p><span class="label"></span> {{this.name}}</p>
 
+        <form action="/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="eaten" value="false">
+          <button type="submit">Eat Again?</button>
+        </form>
+
         </li>
         {{/if}}
         {{/each}}
