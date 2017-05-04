@@ -1,38 +1,55 @@
-<h1>Welcome to Good Burger, Home of the Good Burger</h1>
+<h3>Welcome to Good Burger, Home of the Good Burger</h3>
 
-<p>Burger</p>
+<div class ="container">
 
-<!-- Pass in data from server.js -->
-<ul>
-  {{#each burgers}}
-  	<li>
-  		<p><span class="label">ID:</span> {{this.id}}</p>
-      <p><span class="label">Burger Name: </span> {{this.burger_name}}</p>
-      <p><span class="label">Author:</span> {{this.author}}</p>
+<div class="row">
+  <div id="uneaten" class="col s6">
+    <ul>
+      {{#each burger}}
+        {{#unless this.eaten}}
+      	<li>
+          <p><span class="label">Burger Name: </span> {{this.burger_name}}</p>
+          
+          <form action="/{{this.id}}?_method=DELETE" method="POST">
+            <input type="hidden" name="id" value="{{this.id}}">
+            <button type="submit">Eat Me!</button>
+          </form>
+    
+      	</li>
+        {{/unless}}
+      {{/each}}
+    </ul>
+  </div>
+  
+  <div id="eaten" class="col s6">
+    <ul>
+      {{#each burger}}
+        {{#if this.eaten}}
+        <li>
+          <p><span class="label">Burger Name: </span> {{this.burger_name}}</p>
 
-      <form action="/{{this.id}}?_method=DELETE" method="POST">
-        <input type="hidden" name="id" value="{{this.id}}">
-        <button type="submit">Delete</button>
-      </form>
+          <form action="/{{this.id}}?_method=DELETE" method="POST">
+            <input type="hidden" name="id" value="{{this.id}}">
+            <button type="submit">Eat Me!</button>
+          </form>
+        </li>
+        {{/if}}
+        {{/each}}
+    </ul>
+  </div>
 
-      <a href="/{{this.id}}">Update this quote</a>
-  	</li>
-  {{/each}}
-</ul>
+</div>
 
-<h2>Add a Quote</h2>
+<h2>Add a Burger</h2>
 
 <form class="create-form" action="/" method="POST">
 
   <div class="form-group">
-    <label for="auth">Author:</label>
-    <input type="text" id="auth" name="author">
+    <label for="auth">Burger</label>
+    <input type="text" id="newBurger" name="newBurger">
   </div>
 
-  <div class="form-group">
-    <label for="quo">Quote:</label>
-    <textarea id="quo" name="quote" rows="8" cols="40"></textarea>
-  </div>
-
-  <button type="submit">Add Quote</button>
+  <button type="submit">Add Burger</button>
 </form>
+
+</div>
