@@ -39,12 +39,12 @@ router.put("/:ID", function(req, res) {
   });
 });
 
-router.delete("/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
-  burgerData.delete(condition, function() {
-    res.redirect("/");
-  });
-});
+// router.delete("/:id", function(req, res) {
+//   var condition = "id = " + req.params.id;
+//   burgerData.delete(condition, function() {
+//     res.redirect("/");
+//   });
+// });
 
 
 module.exports = router;
